@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.decor-layer { pointer-events: none; z-index: -1; }
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: linear-gradient(180deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    /* min-height: 100vh; */
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-white text-gray-900 font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent text-white font-semibold py-3 px-6 rounded-lg border-2 border-white transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-900;
+  }
+  
+  .section-padding {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  .space-bg {
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+  }
+  
+  .stars {
+    background-image: 
+      radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+      radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+      radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+      radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+      radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: sparkle 20s linear infinite;
+  }
+  
+  @keyframes sparkle {
+    from { background-position: 0 0; }
+    to { background-position: -200px 0; }
+  }
+  
+  /* Gradient Button Styles - Black Theme with Better Visibility */
+  .rotatingGradient {
+    background: conic-gradient(from var(--r), #ffffff, #e5e5e5, #cccccc, #b3b3b3, #999999, #808080, #666666, #ffffff);
+    border: 2px solid #333333;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: rotate 4s linear infinite;
+  }
+  
+  .rotatingGradient:hover {
+    animation-play-state: paused;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+  }
+  
+  .rotatingGradient:after {
+    background: #000000;
+  }
+  
+  .rotatingGradient .label {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.125rem;
+    letter-spacing: 0.025em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  }
+  
+  @keyframes rotate {
+    from { --r: 0deg; }
+    to { --r: 360deg; }
+  }
+}
